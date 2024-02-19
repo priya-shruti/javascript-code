@@ -1,6 +1,7 @@
-var userInput = prompt("Enter a sentence:");
-if (userInput.length === 7) {
-    document.write("True");
-} else {
-    document.write("False");
+function user () {
+    return ["Abcd",22,"Delhi"]
 }
+let [name,age,city]=user();
+console.log(city);
+console.log(age);
+console.log(name);
