@@ -1,7 +1,16 @@
-function user () {
-    return ["Abcd",22,"Delhi"]
+class employee{
+    constructor(name) {
+        this.empname=name;
+        document.write("Constructor : Employee");
+    }
+    info(){
+        document.write("Employee" + this.empname);
+    }
 }
-let [name,age,city]=user();
-console.log(city);
-console.log(age);
-console.log(name);
+class manager extends employee{
+    info() {
+        document.write("Manager Name:" + this.empname);
+    }
+}
+let a = new manager("Yahoo Baba");
+a.info();
