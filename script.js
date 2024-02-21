@@ -1,19 +1,29 @@
-function prom(a,b) {
-    return new Promise(function (resolve, reject) {
-        console.log("Fetching data, please wait")
-        var c=a/b;
-        if (a,b) {
-            resolve(`Your answer is : ${c}`);
-        }
-        else {
-            reject("Failed to calculate");
-        }
-    });
-}
-let onfulfilment = (result) => {
-    console.log(result)
-}
-let onRejection = (error) => {
-    console.log(error);
-}
-prom(5,2).then(onfulfilment).catch(onRejection);
+let p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("The first message has resolved");
+        resolve(10)
+    }, 1 * 1000)
+});
+
+let p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("The second message has failed");
+        reject("Failed")
+    }, 2 * 1000)
+});
+
+let p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("The third message has resolved");
+        resolve(30)
+    }, 3 * 1000)
+});
+var total=0;
+Promise.all([p1, p2, p3]).then((result) => {
+    for (var i in result) { total += result[i]; }
+
+    console.log(`Results: ${result}`)
+    console.log(`Total: ${total}`)
+}).catch((error) => {
+    console.log(`Results: ${error}`)
+})
