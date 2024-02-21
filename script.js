@@ -1,16 +1,19 @@
-class employee{
-    constructor(name) {
-        this.empname=name;
-        document.write("Constructor : Employee");
-    }
-    info(){
-        document.write("Employee" + this.empname);
-    }
+function prom(a,b) {
+    return new Promise(function (resolve, reject) {
+        console.log("Fetching data, please wait")
+        var c=a/b;
+        if (a,b) {
+            resolve(`Your answer is : ${c}`);
+        }
+        else {
+            reject("Failed to calculate");
+        }
+    });
 }
-class manager extends employee{
-    info() {
-        document.write("Manager Name:" + this.empname);
-    }
+let onfulfilment = (result) => {
+    console.log(result)
 }
-let a = new manager("Yahoo Baba");
-a.info();
+let onRejection = (error) => {
+    console.log(error);
+}
+prom(5,2).then(onfulfilment).catch(onRejection);
